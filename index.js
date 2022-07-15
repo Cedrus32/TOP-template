@@ -1,13 +1,13 @@
-import './style.css';
-import './reset.css';
-import Img from './img.png';
-import XmlData from './data.xml';
-import CsvData from './data.csv';
+import './styles/reset.css';
+import './styles/layout.css';
+import './styles/typo.css';
+import './styles/shaping.css';
+import './styles/colors.css';
 
-console.log(Img);
-console.log(XmlData);
-console.log(CsvData);
+// import Img from './img.png';
+// import XmlData from './data.xml';
+// import CsvData from './data.csv';
 
 // manager function here
 
-// ...
+console.log('webpack is working!');
