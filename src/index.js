@@ -3,6 +3,7 @@ import './styles/layout.css';
 import './styles/typo.css';
 import './styles/shaping.css';
 import './styles/colors.css';
+import events from './events.js';
 import iconsArray from './scripts/icons.js';
 
 // import Img from './img.png';
