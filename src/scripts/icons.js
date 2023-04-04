@@ -1,6 +1,6 @@
 // cache images
 // eslint-disable-next-line no-undef
-let imgQuery = require.context('../icons', false, /\.(png|svg|jpg|jpeg|gif)$/i);
+let imgQuery = require.context('../assets', false, /\.(png|svg|jpg|jpeg|gif)$/i);
 let iconsArray = importIcons(imgQuery);
 console.log('***** ICONS ARRAY *****');
 console.log(iconsArray);
@@ -16,7 +16,7 @@ function importIcons(r) {
         //// console.log(`newValue --> ${newValue}`)
         
         icons[newKey] = newValue;
-    };
+    }
 
     return icons;
 }
