@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './scripts/components/App';
+import MyApp from './scripts/components/MyApp';
 
 import './styles/style.css';
 import './styles/reset.css';
@@ -15,4 +15,4 @@ import events from './scripts/events.js';
 
 // manager function here
 console.log('webpack is working!');
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<MyApp />, document.getElementById('app'));
