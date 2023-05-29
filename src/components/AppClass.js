@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MyComponent from './MyComponent'
-import MyButton from './MyButton';
+import MyHeader from './HeaderClass';
+import MyButton from './ButtonClass';
 
 class MyApp extends Component {
     constructor(props) {
@@ -16,8 +16,7 @@ class MyApp extends Component {
     render() {
         return (
             <div>
-                <MyComponent title="React" message="Hello, world!"/>
-                <button onClick={this.onClickBtn}>I console log!</button>
+                <MyHeader title="React" message="Hello, world!"/>
                 <MyButton onButtonClicked={this.onClickBtn} />
             </div>
         )

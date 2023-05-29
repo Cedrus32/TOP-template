@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import MyApp from './components/MyApp';
+import App from './components/AppFunc';
 
 import './styles/style.css';
 import './styles/reset.css';
@@ -17,4 +17,4 @@ import events from './scripts/events.js';
 console.log('webpack is working!');
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
-root.render(<MyApp />);
+root.render(<App />);

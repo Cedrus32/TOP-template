@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function MyComponent(props) {
+function MyHeader(props) {
     return (
         <div>
             <h1>{props.title}</h1>
@@ -9,4 +9,4 @@ function MyComponent(props) {
     )
 }
 
-export default MyComponent;
+export default MyHeader;
