@@ -10,6 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].main.js',
+        publicPath: '/',
         clean: true,
     },
     module: {
@@ -40,6 +41,9 @@ module.exports = {
                 }
             },
         ],
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
