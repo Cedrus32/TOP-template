@@ -8,9 +8,9 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     output: {
-        path: path.join(__dirname, 'dist'), // join -> resolve
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].main.js',
-        // clean: true,
+        clean: true,
     },
     module: {
         rules: [
@@ -22,7 +22,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/i,
+               test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
             {
@@ -35,6 +35,9 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]'
+                }
             },
         ],
     },
