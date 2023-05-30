@@ -1,58 +1,47 @@
-import events from './events';
+// & pubsub events manager
 
-// & backend localStorage manager
+const events = (() => {
+    let _events = {};
 
-const storage = (() => {
-    function storageAvailable(type) {
-        let storage;
-        try {
-            storage = window[type];
-            const x = '__storage_test__';
-            storage.setItem(x, x);
-            storage.removeItem(x);
-            return true;
+    // subscribe event to list
+    function subscribe(eventName, callback) {
+        if (!Array.isArray(_events[eventName])) {
+            _events[eventName] = [];
         }
-        catch (e) {
-            return e instanceof DOMException && (
-                // everything except Firefox
-                e.code === 22 ||
-                // Firefox
-                e.code === 1014 ||
-                // test name field too, because code might not be present
-                // everything except Firefox
-                e.name === 'QuotaExceededError' ||
-                // Firefox
-                e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-                // acknowledge QuotaExceededError only if there's something already stored
-                (storage && storage.length !== 0);
-        }
+        _events[eventName].push(callback);
+        // console.log(`SUBSCRIBING to ${eventName}`);
     }
-    function check() {
-        let loadLocal;
-        let loadDefault;
-        // localStorage.clear();
-        if (storageAvailable('localStorage')) {
-            console.log(localStorage.getItem('previousLoad'));
-            if (localStorage.getItem('previousLoad') === null) {
-                localStorage.setItem('previousLoad', 'true');
-                loadLocal = false;
-                loadDefault = true;
-            } else {
-                console.log(`localStorage.length: ${localStorage.length}`);
-                loadLocal = true;
-                loadDefault = false;
-            }
-        } else {
-            // throws error per storageAvailable()
-        }
 
-        events.publish('storageCheckComplete', loadLocal, loadDefault);    // subscribed by startup.js
+    // unsubscribe event to list
+    function unsubscribe(eventName) {
+        console.log(eventName);
+        console.log(_events[eventName].length - 1);
+        _events[eventName].splice((_events[eventName].length - 1), 1);
+    }
+
+    // publish event with data
+    function publish(eventName, ...data) {
+        if (!Array.isArray(_events[eventName])){
+            return;
+        }
+        _events[eventName].forEach(callback => {
+            callback(...data);
+            // console.log(`PUBLISHING to ${eventName}`);
+        });
+    }
+
+    // debug
+    function viewEvents() {
+        console.log(_events);
     }
 
     return {
-        check,   // used by index.js
+        subscribe,
+        unsubscribe,
+        publish,
+        viewEvents,
     }
 
 })();
 
-export default storage;
+export default events;
