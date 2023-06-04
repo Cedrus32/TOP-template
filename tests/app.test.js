@@ -1,13 +1,26 @@
 import React from 'react';
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
+// import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import App from '../src/components/App.js';
 
 describe('App component', () => {
-    it('renders correct handling', () => {
+    it('renders magnificent monkeys', () => {
+        const {container} = render(<App/>);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('renders radical rhinos after after button click', async () => {
+        const user = userEvent.setup();
+
         render(<App/>);
-        expect(screen.getByRole('heading').textContent).toMatch(/Hello from App/i);
+        const button = screen.getByRole('button', {
+            name: 'Change Heading'
+        });
+        
+        await user.click(button);
+
+        expect(screen.getByRole('heading').textContent).toMatch(/radical rhinos/i);
     });
 });

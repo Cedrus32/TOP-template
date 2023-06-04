@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
 const App = () => {
-    // <h1>Hello from App</h1>
+    const [heading, setHeading] = useState('Magnificent Monkeys');
+
+    const handleClick = () => {
+        setHeading('Radical Rhinos');
+    };
 
     return (
-        <div>
-            <h1>Hello from App</h1>
-        </div>
+        <>
+            <button type='button' onClick={handleClick}>
+                Change Heading
+            </button>
+            <h1>{heading}</h1>
+        </>
     );
 };
 
