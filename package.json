@@ -11,6 +11,8 @@
   },
   "keywords": [],
   "author": "",
+  "main": "index.js",
+  "homepage": "https://username.github.io/reponame",
   "license": "ISC",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -35,9 +37,11 @@
     "webpack-dev-server": "^4.13.2"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
+    "react-scripts": "^5.0.1",
     "uniqid": "^5.4.0"
   }
 }

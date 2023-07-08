@@ -11,6 +11,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'), // resolve -> join
         filename: '[name].main.js',
         publicPath: '/',
+        // publicPath: '/repo-name/', NOTE: if using react router
         clean: true,
     },
     module: {
