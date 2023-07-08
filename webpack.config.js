@@ -11,6 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].main.js',
         publicPath: '/',
+        // publicPath: '/Repo-Name/',   NOTE: if using react router
         clean: true,
     },
     module: {
